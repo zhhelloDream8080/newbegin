@@ -71,9 +71,11 @@ public class HttpUtil {
                 httpPost.setEntity(httpEntity);
             }
             //开始发送请求信息
+            log.info("请求入参："+httpPost.toString());
             httpResponse = getHttpClient().execute(httpPost);
             HttpEntity httpEntity = httpResponse.getEntity();
             result = EntityUtils.toString(httpEntity);
+            log.info("获得出参："+result.toString());
             EntityUtils.consume(httpEntity);
         } catch (Exception e) {
             log.info("调用http请求失败");
@@ -103,9 +105,11 @@ public class HttpUtil {
             }
             HttpGet httpGet = new HttpGet(url + (StringUtils.contains(url, "?") ? "&" : "?")  //linshi
                     + EntityUtils.toString(new UrlEncodedFormEntity(nameValuePairs, "UTF-8")));
+            log.info("请求入参："+httpGet.toString());
             httpResponse=getHttpClient().execute(httpGet);
             HttpEntity httpEntity = httpResponse.getEntity();
             result = EntityUtils.toString(httpEntity);
+            log.info("获得出参："+result.toString());
             EntityUtils.consume(httpEntity);
         } catch (Exception e) {
             log.info("调用http请求失败");

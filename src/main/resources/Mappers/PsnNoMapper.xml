@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hao.newbegin.test.dao.PsnNoDao">
+    <resultMap id="psnNoDTO" type="com.hao.newbegin.test.entity.PsnNoDTO">
+        <id column="PERSON_ID" property="personId" jdbcType="VARCHAR"/>
+        <result column="PSN_NO" property="psnNo" jdbcType="VARCHAR"/>
+        <result column="PSN_NAME" property="psnName" jdbcType="VARCHAR"/>
+        <result column="CERT_NO" property="certNo" jdbcType="VARCHAR"/>
+        <result column="SEX" property="sex" jdbcType="VARCHAR"/>
+        <result column="ADDR" property="addr" jdbcType="VARCHAR"/>
+        <result column="VALI_FLAG" property="valiFlag" jdbcType="VARCHAR"/>
+        <result column="RID" property="rid" jdbcType="VARCHAR"/>
+    </resultMap>
+    <select id="selectById" parameterType="java.lang.String" resultMap="psnNoDTO">
+        select * from tab_person
+        where PERSON_ID=#{id}
+    </select>
+</mapper>

@@ -1,0 +1,8 @@
+#设置消息队列连接信息
+rabbit:
+  mq:
+    host: 192.168.18.131 #注意host后面是有空格的
+    port: 5637
+    username: hao
+    password: 123
+    virtualhost: /hao
